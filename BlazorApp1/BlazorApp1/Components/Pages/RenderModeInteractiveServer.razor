@@ -1,0 +1,15 @@
+﻿@page "/render-mode-InteractiveServer"
+@rendermode InteractiveServer
+
+<h2>InteractiveServer</h2>
+
+<button @onclick="UpdateMessage">Click me</button> @message
+
+@code {
+    private string message = "Not clicked yet.";
+
+    private void UpdateMessage()
+    {
+        message = "Somebody clicked me!";
+    }
+}
