@@ -7,21 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1.Client", "BlazorApp1\BlazorApp1.Client\BlazorApp1.Client.csproj", "{41F4F186-BA4B-4FC7-8EB1-ACBE68E4F388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_GlobalAuto", "BlazorApp_GlobalAuto\BlazorApp_GlobalAuto\BlazorApp_GlobalAuto.csproj", "{90966157-9EB4-4CEC-AFB8-E563C356FA0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_GlobalAuto", "BlazorApp_GlobalAuto\BlazorApp_GlobalAuto\BlazorApp_GlobalAuto.csproj", "{90966157-9EB4-4CEC-AFB8-E563C356FA0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp_GlobalAuto.Client", "BlazorApp_GlobalAuto\BlazorApp_GlobalAuto.Client\BlazorApp_GlobalAuto.Client.csproj", "{E5812FD4-BE1F-4DA4-A5F5-4A237DD5C077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp_GlobalAuto.Client", "BlazorApp_GlobalAuto\BlazorApp_GlobalAuto.Client\BlazorApp_GlobalAuto.Client.csproj", "{E5812FD4-BE1F-4DA4-A5F5-4A237DD5C077}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppSSR", "BlazorAppSSR\BlazorAppSSR.csproj", "{67F25DC7-BD17-4334-915E-D4168731B6F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppSSR", "BlazorAppSSR\BlazorAppSSR.csproj", "{67F25DC7-BD17-4334-915E-D4168731B6F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppWasm", "BlazorAppWasm\BlazorAppWasm\BlazorAppWasm.csproj", "{6020C8DF-C19A-4233-9BED-6A447B647615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppWasm", "BlazorAppWasm\BlazorAppWasm\BlazorAppWasm.csproj", "{6020C8DF-C19A-4233-9BED-6A447B647615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppWasm.Client", "BlazorAppWasm\BlazorAppWasm.Client\BlazorAppWasm.Client.csproj", "{45B96510-719C-4119-AA25-C9684206A6F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppWasm.Client", "BlazorAppWasm\BlazorAppWasm.Client\BlazorAppWasm.Client.csproj", "{45B96510-719C-4119-AA25-C9684206A6F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalAuto", "GlobalAuto", "{06814972-2681-463B-BF54-0D843E470B72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auto", "Auto", "{04A380F6-76CC-4FF9-B103-E6A8F08B8888}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wasm", "Wasm", "{4A42B23F-B073-4EF0-9752-10CB84E486BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{3D1B1FD4-8800-4064-8069-88A1682C42A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,12 @@ Global
 		{45B96510-719C-4119-AA25-C9684206A6F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B96510-719C-4119-AA25-C9684206A6F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B96510-719C-4119-AA25-C9684206A6F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
