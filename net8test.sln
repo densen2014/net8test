@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wasm", "Wasm", "{4A42B23F-B073-4EF0-9752-10CB84E486BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppNet7ssr", "BlazorAppNet7ssr\BlazorAppNet7ssr.csproj", "{ACECAD2C-A1BB-4AF6-ABF4-1B82BA43734D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{3D1B1FD4-8800-4064-8069-88A1682C42A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +64,12 @@ Global
 		{ACECAD2C-A1BB-4AF6-ABF4-1B82BA43734D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACECAD2C-A1BB-4AF6-ABF4-1B82BA43734D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACECAD2C-A1BB-4AF6-ABF4-1B82BA43734D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D1B1FD4-8800-4064-8069-88A1682C42A3}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
