@@ -5,3 +5,29 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@code{
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"Initialized at {DateTime.Now}");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine($"OnInitializedAsync at {DateTime.Now}");
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine($"OnAfterRenderAsync at {DateTime.Now}");
+        }
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Console.WriteLine($"OnAfterRender at {DateTime.Now}");
+        }
+    }
+}
