@@ -1,5 +1,6 @@
 using BlazorWebApp.Client.Pages;
 using BlazorWebApp.Components;
+using BlazorWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+// 增加 BootstrapBlazor 组件
+builder.Services.AddBootstrapBlazor();
+builder.Services.AddSingleton<WeatherForecastService>();
 
 var app = builder.Build();
 
