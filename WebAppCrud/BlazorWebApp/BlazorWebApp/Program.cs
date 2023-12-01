@@ -1,8 +1,6 @@
-using BlazorWebApp.Client.Pages;
 using BlazorWebApp.Components;
 using BlazorWebApp.Services;
 using Densen.DataAcces.FreeSql;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.OpenApi.Models;
 
 IFreeSql fsql = new FreeSql.FreeSqlBuilder()

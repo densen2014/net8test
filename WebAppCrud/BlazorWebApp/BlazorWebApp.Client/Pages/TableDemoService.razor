@@ -1,5 +1,4 @@
 ﻿@page "/tabledemoService"
-@using System.Net.Http.Json
 @rendermode InteractiveAuto
 
 <PageTitle>Table Service</PageTitle>
@@ -25,11 +24,13 @@
            DoubleClickToEdit
            IsMultipleSelect>
     </Table>
-    </BootstrapBlazorRoot>
+</BootstrapBlazorRoot>
 
-        @code {
+@code {
 
-            [Inject] private ApiDataService<WeatherForecast> DataService { get; set; }
+    [Inject]
+    [NotNull]
+    private ApiDataService<WeatherForecast>? DataService { get; set; }
 
 
-        }
+}
