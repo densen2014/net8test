@@ -16,12 +16,12 @@ namespace BlazorWebApp.Services;
 public class ApiDataService<TModel> : DataServiceBase<TModel>
         where TModel : class, new()
 {
-    public List<TModel> Items { get; set; } = new List<TModel>();
+    public List<TModel> Items { get; set; } = [];
     public IEnumerable<int> PageItemsSource => new int[] { 10, 20, 100, 500 };
     public IEnumerable<int> PageItemsSource50 => new int[] { 50, 100, 200, 500 };
 
     [NotNull]
-    HttpClient? Http { get; set; }
+    private HttpClient? Http { get; set; }
 
     /// <summary>
     /// 设置主表主键,用于保存临时数据
@@ -44,7 +44,7 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
     {
         // 增加数据演示代码
 
-        if (Items.Where(a=>a.GetValue("ID")== model.GetValue("ID")).Any())
+        if (Items.Where(a => a.GetValue("ID") == model.GetValue("ID")).Any())
         {
             var res = await Http.PatchAsync($"test?Id={model.GetValue("ID")}&name={model.GetValue("Summary")}", null);
         }
@@ -59,11 +59,12 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
 
     public override async Task<bool> DeleteAsync(IEnumerable<TModel> items)
     {
-        items.ToList().ForEach(async i => {
+        items.ToList().ForEach(async i =>
+        {
             //Items.Remove(i);
             await Http.DeleteAsync($"test?Id={i.GetValue("ID")}");
         });
-        return  true;
+        return true;
     }
 
     private static readonly ConcurrentDictionary<Type, Func<IEnumerable<TModel>, string, SortOrder, IEnumerable<TModel>>> SortLambdaCache = new();
@@ -116,9 +117,13 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
 
         // 内存分页
         if (options.IsPage)
+        {
             items = items.Skip((options.PageIndex - 1) * options.PageItems).Take(options.PageItems);
+        }
         else if (options.IsVirtualScroll)
+        {
             items = items.Skip(options.StartIndex).Take(options.PageItems);
+        }
 
         return new QueryData<TModel>()
         {

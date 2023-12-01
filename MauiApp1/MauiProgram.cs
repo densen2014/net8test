@@ -1,4 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using Microsoft.Extensions.Logging;
 
 namespace MauiApp1
 {
@@ -17,8 +23,8 @@ namespace MauiApp1
             builder.Services.AddMauiBlazorWebView();
 
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
-    		builder.Logging.AddDebug();
+            builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

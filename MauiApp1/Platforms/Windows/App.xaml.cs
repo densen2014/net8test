@@ -1,4 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -16,7 +20,7 @@ namespace MauiApp1.WinUI
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();

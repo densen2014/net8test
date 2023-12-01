@@ -1,3 +1,9 @@
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
 using BlazorWebApp.Services;
 using Densen.DataAcces.FreeSql;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

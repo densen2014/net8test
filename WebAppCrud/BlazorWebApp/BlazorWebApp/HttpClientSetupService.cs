@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Hosting.Server;
+﻿// ********************************** 
+// Densen Informatica 中讯科技 
+// 作者：Alex Chow
+// e-mail:zhouchuanglin@gmail.com 
+// **********************************
+
+using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 
 namespace BlazorWebApp.Services;
