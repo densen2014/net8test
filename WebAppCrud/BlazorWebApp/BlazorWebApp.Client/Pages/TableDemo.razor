@@ -1,0 +1,30 @@
+﻿@page "/tabledemo"
+@inject WeatherForecastService ForecastService 
+
+<PageTitle>Table</PageTitle>
+
+<h1>Table</h1>
+
+ 
+<Button Icon="fa-solid fa-arrows-rotate" Text="@RefreshText" OnClick="OnClick" class="my-2" />
+
+
+    <Table TItem="WeatherForecast" Items="@forecasts" AutoGenerateColumns> 
+    </Table>
+
+@code {
+    [NotNull]
+    private string? RefreshText { get; set; } = "刷新";
+
+    private async Task OnClick()
+    {
+        forecasts = (await ForecastService.GetForecastAsync()).ToList();
+    }
+
+    private List<WeatherForecast>? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        forecasts = (await ForecastService.GetForecastAsync()).ToList();
+    }
+}
