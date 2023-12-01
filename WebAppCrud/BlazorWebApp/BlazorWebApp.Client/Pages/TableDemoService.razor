@@ -1,0 +1,33 @@
+﻿@page "/tabledemoService"
+@using System.Net.Http.Json
+
+<PageTitle>Table Service</PageTitle>
+
+<h1>Table Service (Auto)</h1>
+
+
+<Table TItem="WeatherForecast"
+       DataService="DataService"
+       OnQueryAsync="DataService.QueryAsync"
+	   OnSaveAsync="DataService.SaveAsync"
+	   OnDeleteAsync="DataService.DeleteAsync" 
+       IsPagination
+       IsStriped
+       IsBordered
+       AutoGenerateColumns
+       ShowSearch
+       ShowToolbar
+       ShowExtendButtons 
+       ShowColumnList
+       ShowCardView
+       DoubleClickToEdit
+       IsMultipleSelect>
+
+</Table>
+
+@code {
+
+    [Inject] private ApiDataService<WeatherForecast> DataService { get; set; } 
+
+  
+}

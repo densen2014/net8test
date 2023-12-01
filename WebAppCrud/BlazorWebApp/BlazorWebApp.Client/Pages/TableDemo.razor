@@ -3,13 +3,25 @@
 
 <PageTitle>Table</PageTitle>
 
-<h1>Table</h1>
+<h1>Table (Auto)</h1>
 
  
-<Button Icon="fa-solid fa-arrows-rotate" Text="@RefreshText" OnClick="OnClick" class="my-2" />
+<Button Text="@RefreshText" OnClick="OnClick" class="my-2" />
 
 
-    <Table TItem="WeatherForecast" Items="@forecasts" AutoGenerateColumns> 
+    <Table TItem="WeatherForecast" 
+           Items="@forecasts"
+           IsPagination
+           IsStriped
+           IsBordered
+           ShowSearch
+           ShowToolbar
+           ShowExtendButtons
+           ShowColumnList
+           ShowCardView
+           AutoGenerateColumns 
+           DoubleClickToEdit
+           IsMultipleSelect> 
     </Table>
 
 @code {

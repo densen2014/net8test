@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlazorWebApp</name>
+    </assembly>
+    <members>
+        <member name="T:BlazorWebApp.Constants">
+            <summary>
+            系统常量
+            </summary>
+        </member>
+        <member name="F:BlazorWebApp.Constants.TableDemoOrm">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BlazorWebApp.Controllers.testController">
+            <summary>
+            freesql API
+            </summary>
+        </member>
+        <member name="M:BlazorWebApp.Controllers.testController.Test">
+            <summary>
+            测试api工作是否正常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BlazorWebApp.Controllers.testController.Get">
+            <summary>
+            获取数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BlazorWebApp.Controllers.testController.Put(System.String)">
+            <summary>
+            put或者GET的put方法插入一条数据
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlazorWebApp.Controllers.testController.Del(System.Int32)">
+            <summary>
+            delete或者GET的Del方法删除一条数据
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlazorWebApp.Controllers.testController.Modify(System.Int32,System.String)">
+            <summary>
+            Patch或者GET的Modify方法编辑一条数据
+            </summary>
+            <param name="Id"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
