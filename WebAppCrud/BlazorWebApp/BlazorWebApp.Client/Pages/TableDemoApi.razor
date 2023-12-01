@@ -1,70 +1,73 @@
 ﻿@page "/tabledemoapi"
 @using System.Net.Http.Json
+@rendermode InteractiveAuto
 
 <PageTitle>Table API</PageTitle>
 
 <h1>Table API (Auto)</h1>
+<BootstrapBlazorRoot>
 
-<BootstrapInput DisplayText="名称" @bind-Value="Name" />
-<BootstrapInputGroup>
-    <Button Text="添加" OnClick="OnAddClick" class="my-2" />
-    <Button Text="清空" OnClick="OnResetClick" class="my-2" />
-    <Button Text="刷新" OnClick="OnRefreshClick" class="my-2" />
-    <Button Text="删除" OnClick="OnDelClick" class="my-2" />
-</BootstrapInputGroup>
-<BootstrapInputNumber DisplayText="删除ID" @bind-Value="ID" />
+    <BootstrapInput DisplayText="名称" @bind-Value="Name" />
+    <BootstrapInputGroup>
+        <Button Text="添加" OnClick="OnAddClick" class="my-2" />
+        <Button Text="清空" OnClick="OnResetClick" class="my-2" />
+        <Button Text="刷新" OnClick="OnRefreshClick" class="my-2" />
+        <Button Text="删除" OnClick="OnDelClick" class="my-2" />
+    </BootstrapInputGroup>
+    <BootstrapInputNumber DisplayText="删除ID" @bind-Value="ID" />
 
-<Table TItem="WeatherForecast" Items="@forecasts" AutoGenerateColumns>
-</Table>
+    <Table TItem="WeatherForecast" Items="@forecasts" AutoGenerateColumns>
+    </Table>
+    </BootstrapBlazorRoot>
 
-@code {
+        @code {
 
-    [Inject]
-    [NotNull]
-    HttpClient? Http { get; set; }
+            [Inject]
+            [NotNull]
+            HttpClient? Http { get; set; }
 
-    //[Inject]
-    //[NotNull]
-    //IWebAssemblyHostEnvironment? hostEnv { get; set; }
+            //[Inject]
+            //[NotNull]
+            //IWebAssemblyHostEnvironment? hostEnv { get; set; }
 
-    //[SupplyParameterFromForm]
+            //[SupplyParameterFromForm]
 
-    public string? Name { get; set; } = "testname";
+            public string? Name { get; set; } = "testname";
 
-    public int ID { get; set; }
+            public int ID { get; set; }
 
-    private async Task OnAddClick()
-    {
-        //var addItem = new WeatherForecast { Summary = "NewItem"  };
-        //await Http.PostAsJsonAsync("/test?name=test", addItem);
-        var res = await Http.PutAsync($"test?name={Name}", null);
-        await OnRefreshClick();
-    }
+            private async Task OnAddClick()
+            {
+                //var addItem = new WeatherForecast { Summary = "NewItem"  };
+                //await Http.PostAsJsonAsync("/test?name=test", addItem);
+                var res = await Http.PutAsync($"test?name={Name}", null);
+                await OnRefreshClick();
+            }
 
-    private async Task OnDelClick()
-    {
-        var res = await Http.DeleteAsync($"test?Id={ID}");
-        await OnRefreshClick();
-    }
+            private async Task OnDelClick()
+            {
+                var res = await Http.DeleteAsync($"test?Id={ID}");
+                await OnRefreshClick();
+            }
 
-    private async Task OnResetClick()
-    {
-        var res = await Http.DeleteAsync("test/Reset?flag=true");
-        await OnRefreshClick();
-    }
+            private async Task OnResetClick()
+            {
+                var res = await Http.DeleteAsync("test/Reset?flag=true");
+                await OnRefreshClick();
+            }
 
-    private async Task OnRefreshClick()
-    {
-        forecasts = (await Http.GetFromJsonAsync<WeatherForecast[]>("test"))?.ToList();
-    }
+            private async Task OnRefreshClick()
+            {
+                forecasts = (await Http.GetFromJsonAsync<WeatherForecast[]>("test"))?.ToList();
+            }
 
-    private List<WeatherForecast>? forecasts;
+            private List<WeatherForecast>? forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        if (Http.BaseAddress == null)
-            Http.BaseAddress = new Uri("https://localhost:7241/");
+            protected override async Task OnInitializedAsync()
+            {
+                if (Http.BaseAddress == null)
+                    Http.BaseAddress = new Uri("https://localhost:7241/");
 
-        await OnRefreshClick();
-    }
-}
+                await OnRefreshClick();
+            }
+        }

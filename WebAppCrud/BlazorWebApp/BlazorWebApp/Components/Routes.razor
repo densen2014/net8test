@@ -1,0 +1,10 @@
+﻿@using System.Reflection
+
+<BootstrapBlazorRoot>
+    <Router AppAssembly="@typeof(MainLayout).Assembly" AdditionalAssemblies="new Assembly[] { typeof(Client._Imports).Assembly , typeof(BlazorWebApp.Components._Imports).Assembly}">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(BlazorWebApp.Client.Layout.MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+    </Router>
+</BootstrapBlazorRoot>

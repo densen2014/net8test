@@ -1,28 +1,29 @@
 ﻿@page "/tabledemo"
-@inject WeatherForecastService ForecastService 
+@inject WeatherForecastService ForecastService
+@rendermode InteractiveAuto
 
 <PageTitle>Table</PageTitle>
 
 <h1>Table (Auto)</h1>
 
- 
+
 <Button Text="@RefreshText" OnClick="OnClick" class="my-2" />
 
 
-    <Table TItem="WeatherForecast" 
-           Items="@forecasts"
-           IsPagination
-           IsStriped
-           IsBordered
-           ShowSearch
-           ShowToolbar
-           ShowExtendButtons
-           ShowColumnList
-           ShowCardView
-           AutoGenerateColumns 
-           DoubleClickToEdit
-           IsMultipleSelect> 
-    </Table>
+<Table TItem="WeatherForecast"
+       Items="@forecasts"
+       IsPagination
+       IsStriped
+       IsBordered
+       ShowSearch
+       ShowToolbar
+       ShowExtendButtons
+       ShowColumnList
+       ShowCardView
+       AutoGenerateColumns
+       DoubleClickToEdit
+       IsMultipleSelect>
+</Table>
 
 @code {
     [NotNull]

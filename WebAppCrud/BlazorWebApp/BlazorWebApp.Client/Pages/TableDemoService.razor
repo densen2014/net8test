@@ -1,33 +1,35 @@
 ﻿@page "/tabledemoService"
 @using System.Net.Http.Json
+@rendermode InteractiveAuto
 
 <PageTitle>Table Service</PageTitle>
 
 <h1>Table Service (Auto)</h1>
 
+<BootstrapBlazorRoot>
 
-<Table TItem="WeatherForecast"
-       DataService="DataService"
-       OnQueryAsync="DataService.QueryAsync"
-	   OnSaveAsync="DataService.SaveAsync"
-	   OnDeleteAsync="DataService.DeleteAsync" 
-       IsPagination
-       IsStriped
-       IsBordered
-       AutoGenerateColumns
-       ShowSearch
-       ShowToolbar
-       ShowExtendButtons 
-       ShowColumnList
-       ShowCardView
-       DoubleClickToEdit
-       IsMultipleSelect>
+    <Table TItem="WeatherForecast"
+           DataService="DataService"
+           OnQueryAsync="DataService.QueryAsync"
+           OnSaveAsync="DataService.SaveAsync"
+           OnDeleteAsync="DataService.DeleteAsync"
+           IsPagination
+           IsStriped
+           IsBordered
+           AutoGenerateColumns
+           ShowSearch
+           ShowToolbar
+           ShowExtendButtons
+           ShowColumnList
+           ShowCardView
+           DoubleClickToEdit
+           IsMultipleSelect>
+    </Table>
+    </BootstrapBlazorRoot>
 
-</Table>
+        @code {
 
-@code {
+            [Inject] private ApiDataService<WeatherForecast> DataService { get; set; }
 
-    [Inject] private ApiDataService<WeatherForecast> DataService { get; set; } 
 
-  
-}
+        }
