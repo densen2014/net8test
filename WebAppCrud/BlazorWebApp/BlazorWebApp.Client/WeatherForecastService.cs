@@ -49,7 +49,8 @@ public class WeatherForecast
     [DisplayName("日期")]
     public DateOnly Date { get; set; } = DateOnly.FromDateTime(DateTime.Now);
     public int TemperatureC { get; set; }
-    public string? Summary { get; set; }
+    public string? Summary { get; set; }= "Hot";
+
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
     public static List<WeatherForecast> GenDatas()

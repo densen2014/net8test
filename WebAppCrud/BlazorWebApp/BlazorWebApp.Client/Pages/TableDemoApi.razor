@@ -7,14 +7,14 @@
 <h1>Table API (Auto)</h1>
 <BootstrapBlazorRoot>
 
-    <BootstrapInput DisplayText="名称" @bind-Value="Name" />
+    <BootstrapInput DisplayText="名称" @bind-Value="Name" ShowLabel="true" />
     <BootstrapInputGroup>
         <Button Text="添加" OnClick="OnAddClick" class="my-2" />
         <Button Text="清空" OnClick="OnResetClick" class="my-2" />
         <Button Text="刷新" OnClick="OnRefreshClick" class="my-2" />
         <Button Text="删除" OnClick="OnDelClick" class="my-2" />
     </BootstrapInputGroup>
-    <BootstrapInputNumber DisplayText="删除ID" @bind-Value="ID" />
+    <BootstrapInputNumber DisplayText="删除ID" @bind-Value="ID" ShowLabel="true" Color="Color.Danger" />
 
     <Table TItem="WeatherForecast" Items="@forecasts" AutoGenerateColumns>
     </Table>
@@ -25,6 +25,10 @@
     [Inject]
     [NotNull]
     HttpClient? Http { get; set; }
+
+    [Inject]
+    [NotNull]
+    ToastService? Toast { get; set; }
 
     //[Inject]
     //[NotNull]
@@ -65,9 +69,27 @@
 
     protected override async Task OnInitializedAsync()
     {
-        if (Http.BaseAddress == null)
-            Http.BaseAddress = new Uri("https://localhost:7241/");
+        //try
+        //{
+        //    if (Http.BaseAddress == null)
+        //        Http.BaseAddress = new Uri("https://localhost:7241/");
 
-        await OnRefreshClick();
+        //    await OnRefreshClick();
+
+        //}
+        //catch (Exception e)
+        //{
+        //    await Toast.Error(e.Message);
+        //}
     }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await OnRefreshClick();
+            StateHasChanged();
+        }
+    }
+
 }
