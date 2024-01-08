@@ -32,6 +32,9 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
     public ApiDataService(HttpClient? Http)
     {
         this.Http = Http;
+        if (this.Http.BaseAddress == null)
+            this.Http.BaseAddress = new Uri("https://localhost:7241/");
+
     }
 
     /// <summary>

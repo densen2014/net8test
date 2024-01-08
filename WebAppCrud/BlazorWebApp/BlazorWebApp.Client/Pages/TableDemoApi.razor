@@ -69,18 +69,18 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //try
-        //{
-        //    if (Http.BaseAddress == null)
-        //        Http.BaseAddress = new Uri("https://localhost:7241/");
+        try
+        {
+            if (Http.BaseAddress == null)
+                Http.BaseAddress = new Uri("https://localhost:7241/");
 
-        //    await OnRefreshClick();
+            await OnRefreshClick();
 
-        //}
-        //catch (Exception e)
-        //{
-        //    await Toast.Error(e.Message);
-        //}
+        }
+        catch (Exception e)
+        {
+            await Toast.Error(e.Message);
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
