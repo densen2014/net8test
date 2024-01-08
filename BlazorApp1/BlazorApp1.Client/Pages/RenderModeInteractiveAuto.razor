@@ -5,8 +5,21 @@
 
 <button @onclick="UpdateMessage">Click me</button> @message
 
+<button @onclick="@onClick"> Click </button>@isWebAssembly
+
+
 @code {
+
+    [Inject]
+    protected IJSRuntime? jsRuntime { get; set; }
+    private string isWebAssembly = "";
     private string message = "Not clicked yet.";
+
+    private void onClick()
+    {
+        isWebAssembly = (this.jsRuntime is IJSInProcessRuntime)? "is WASM" : "is SSR";
+    }
+
 
     private void UpdateMessage()
     {

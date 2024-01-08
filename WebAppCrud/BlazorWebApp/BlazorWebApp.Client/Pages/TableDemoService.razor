@@ -3,7 +3,7 @@
 
 <PageTitle>Table Service</PageTitle>
 
-<h1>Table Service (Auto)</h1>
+<h1>Table Service (Auto) <CheckEnvironment /></h1> 
 
 <BootstrapBlazorRoot>
 
@@ -30,7 +30,6 @@
 
     [Inject]
     [NotNull]
-    private ApiDataService<WeatherForecast>? DataService { get; set; }
-
+    private ApiDataService<WeatherForecast>? DataService { get; set; } 
 
 }

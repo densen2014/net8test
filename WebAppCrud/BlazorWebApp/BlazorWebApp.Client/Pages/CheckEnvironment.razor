@@ -1,0 +1,28 @@
+﻿@page "/CheckEnvironment"
+@rendermode InteractiveAuto
+
+@isWebAssembly
+
+@code {
+
+    [Inject]
+    [NotNull]
+    protected IJSRuntime? jsRuntime { get; set; }
+
+    private string isWebAssembly = "";
+
+    protected override void OnInitialized()
+    {
+        isWebAssembly = (this.jsRuntime is IJSInProcessRuntime) ? "(in WASM)" : "(in SSR)";
+    }
+
+    //protected override void OnAfterRender(bool firstRender)
+    //{
+    //    if (firstRender)
+    //    {
+    //        isWebAssembly = (this.jsRuntime is IJSInProcessRuntime) ? "(in WASM)" : "(in SSR)";
+    //        StateHasChanged();
+    //    }
+    //}
+
+}
