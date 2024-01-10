@@ -60,14 +60,14 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
         return true;
     }
 
-    public override async Task<bool> DeleteAsync(IEnumerable<TModel> items)
+    public override Task<bool> DeleteAsync(IEnumerable<TModel> items)
     {
         items.ToList().ForEach(async i =>
         {
             //Items.Remove(i);
             await Http.DeleteAsync($"test?Id={i.GetValue("ID")}");
         });
-        return true;
+        return Task.FromResult(true);
     }
 
     private static readonly ConcurrentDictionary<Type, Func<IEnumerable<TModel>, string, SortOrder, IEnumerable<TModel>>> SortLambdaCache = new();
@@ -75,7 +75,8 @@ public class ApiDataService<TModel> : DataServiceBase<TModel>
     public override async Task<QueryData<TModel>> QueryAsync(QueryPageOptions options)
     {
         System.Console.WriteLine($"LazyHero QueryAsync {计数} 数据:{Items?.Count}"); 计数++;
-        Items = (await Http.GetFromJsonAsync<TModel[]>("test"))?.ToList();
+        var res= await Http.GetFromJsonAsync<TModel[]>("test");
+        Items = res == null ? new List<TModel>() : res.ToList();
         IEnumerable<TModel> items = Items;
 
         // 处理 Searchable=true 列与 SeachText 模糊搜索
@@ -192,7 +193,7 @@ internal static partial class ObjectsExtensions
     /// <param name="instance">object</param>
     /// <param name="propertyName">需要判断的属性</param>
     /// <returns>是否包含</returns>
-    public static object GetField<TItem>(this TItem instance, string propertyName)
+    public static object? GetField<TItem>(this TItem instance, string propertyName)
     {
 
         if (instance != null && !string.IsNullOrEmpty(propertyName))
@@ -209,13 +210,13 @@ internal static partial class ObjectsExtensions
     /// <param name="instance">object</param>
     /// <param name="propertyName">需要判断的属性</param>
     /// <returns>是否包含</returns>
-    public static object GetValue<TItem>(this TItem instance, string propertyName)
+    public static object? GetValue<TItem>(this TItem instance, string propertyName)
     {
 
         if (instance != null && !string.IsNullOrEmpty(propertyName))
         {
             var propertyInfo = instance.GetType().GetProperty(propertyName);
-            return propertyInfo.GetValue(instance);
+            return propertyInfo?.GetValue(instance);
         }
         return null;
     }

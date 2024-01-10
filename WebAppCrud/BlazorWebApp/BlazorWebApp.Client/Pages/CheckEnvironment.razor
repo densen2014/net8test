@@ -1,5 +1,6 @@
 ﻿@page "/CheckEnvironment"
 @rendermode InteractiveAuto
+@attribute [StreamRendering]
 
 @isWebAssembly
 
@@ -16,13 +17,13 @@
         isWebAssembly = (this.jsRuntime is IJSInProcessRuntime) ? "(in WASM)" : "(in SSR)";
     }
 
-    //protected override void OnAfterRender(bool firstRender)
-    //{
-    //    if (firstRender)
-    //    {
-    //        isWebAssembly = (this.jsRuntime is IJSInProcessRuntime) ? "(in WASM)" : "(in SSR)";
-    //        StateHasChanged();
-    //    }
-    //}
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            isWebAssembly = (this.jsRuntime is IJSInProcessRuntime) ? "(in WASM)" : "(in SSR)";
+            StateHasChanged();
+        }
+    }
 
 }
